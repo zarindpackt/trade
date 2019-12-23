@@ -1,11 +1,10 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { FreeProductComponent } from './free-product/free-product.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/free-product/9781788839792', pathMatch: 'full' },
-  { path: 'free-product/:productId', component: FreeProductComponent }
+  { path: '', redirectTo: '/homepage', pathMatch: 'full' },
+  { path: 'homepage', component: HomepageComponent }
 ];
 
 @NgModule({
