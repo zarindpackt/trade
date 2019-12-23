@@ -1,1 +1,312 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+$primary-color: #ec6611;
+$primary-color-dark: #c85808;
+$light-grey: #e5eaee;
+$secondary-color: #5594db;
+$secondary-color-dark: #4e7fb0;
+$form-highlighted: #ff0000f8;
+
+.main-content {
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .container {
+    display: flex;
+    flex-wrap: no-wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+  }
+
+  .product-block-left {
+    order: 1;
+    flex-grow: 2;
+    flex-basis: 75%;
+    align-self: flex-start;
+
+    .product-block-content {
+      display: flex;
+
+      .product-image {
+        order: 1;
+        max-width: 200px;
+        max-height: 250px;
+      }
+
+      .product-summary {
+        order: 2;
+        padding: 0 0 0 10px;
+      }
+    }
+  }
+
+  .product-block-right {
+    order: 2;
+    flex-grow: 1;
+    flex-basis: 25%;
+    align-self: flex-start;
+
+    h4 {
+      margin: 5px 0 0 5px;
+    }
+
+    .cta-readonline-block {
+      padding: 0 15px 20px 20px;
+      border: 2px solid $light-grey;
+      border-radius: 2px;
+
+      .readonline-readNow {
+        text-align: center;
+      }
+    }
+  }
+
+  .rec-titles-block {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0px;
+
+    .rec-block{
+      margin: 5px 20px 50px 20px;
+      padding: 5px 15px 5px 15px;
+      width: 100%;
+      @media screen and (min-width: 820px) {
+        width: 37%;
+      }
+      @media screen and (min-width: 1203px) {
+        width: 26%;
+      }
+      border: 2px solid $light-grey;
+      border-radius: 2px;
+      display: flex;
+
+      .body {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+      }
+      .body-left {
+        padding-top: 10px;
+        padding-bottom: 5px;
+        width: 50%;
+        @media screen and (min-width: 820px) {
+          width: 50%;
+        }
+
+        .rec-cover-image {
+          order: 1;
+          width: 160px;
+          height: 250px;
+          padding: 10px;
+        }
+      }
+
+      .body-right {
+        padding-top: 3px;
+        width: 60%;
+        font-size: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .cta-right {
+        text-align: right;
+        flex: 1;
+        float: right;
+        width: 50%;
+      }
+      .cta-readme {
+        color: white;
+        height: 28px;
+        background-color: $primary-color;
+        float: right;
+      }
+    }
+  }
+
+  .chapters-block {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0px;
+
+    .chapter-content-block {
+      height: 285px;
+      margin: 5px 20px 50px 20px;
+      padding: 5px 15px 5px 15px;
+      width: 26%;
+      border: 2px solid $light-grey;
+      border-radius: 2px;
+
+      .chapter-header {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        width: 100%;
+        min-height: 45px;
+
+        .chapter-number {
+          height: 30px;
+          margin: 3px 5px 0 0;
+          text-align: center;
+          padding: 5px 15px 5px 0px;
+          border-radius: 50%;
+          h3 {
+            margin: 0;
+          }
+        }
+
+        .chapter-title {
+          flex-grow: 1;
+          float: left;
+
+          h4 {
+            margin-top: 8px;
+          }
+        }
+      }
+
+      .chapter-outline {
+        align-items: flex-start;
+        height: 190px;
+        margin-top: -10px;
+        p {
+          margin-top: -15px;
+        }
+      }
+
+      .cta-section {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 40px;
+        align-self: flex-end;
+        margin-bottom: 9px;
+
+        .cta-left {
+          text-align: left;
+          flex: 1;
+          float: left;
+          width: 50%;
+        }
+
+        .cta-right {
+          text-align: right;
+          flex: 1;
+          float: right;
+          width: 50%;
+        }
+      }
+    }
+  }
+
+  header {
+    background-color: rgb(60, 60, 59);
+    height: 75px;
+    nav .logo {
+      height: 35px;
+      padding: 20px 0 20px 0;
+    }
+  }
+}
+
+.free-icon {
+  float: right;
+  margin: 5px 5px 0 0;
+  text-align: center;
+  width: 40px;
+  height: 20px;
+  padding: 5px 15px 5px 15px;
+  border-radius: 15px;
+  background-color: $light-grey;
+}
+
+.cta-readme {
+  color: white;
+  height: 28px;
+  background-color: $primary-color;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+h2,
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  color: #444;
+}
+body,
+input[text],
+button {
+  font-family: Arial, Helvetica, sans-serif;
+}
+a {
+  cursor: pointer;
+  cursor: hand;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+
+/* Navigation link styles */
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited,
+a:link {
+  color: #607d8b;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #cfd8dc;
+}
+nav a.active {
+  color: #039be5;
+}
+
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  color: #333;
+  font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.42857;
+  font-size: 1rem;
+}

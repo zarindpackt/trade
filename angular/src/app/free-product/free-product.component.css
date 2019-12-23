@@ -1,0 +1,8 @@
+/* FreeProductComponent's private CSS styles */
+.product-cover {
+    position:absolute;
+    left:0;
+    float: bottom;
+    vertical-align: text-bottom;
+    padding-left: 50px;
+}
