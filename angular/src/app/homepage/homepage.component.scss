@@ -1,3 +1,9 @@
-.title{
+@import "../../styles.scss";
+.title {
+    text-align: center;
+    font-size: 32px;
+    color:$primary-color;
+}
+.subtitle{
     text-align: center;
 }
