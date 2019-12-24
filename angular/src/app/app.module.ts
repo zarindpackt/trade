@@ -9,15 +9,15 @@ import { isPlatformBrowser } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HomepageComponent } from './homepage/homepage.component';
+import {SharedModule} from './shared/shared.module';
 
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({
-      appId: 'spike-free-product'
-    }),
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    SharedModule
   ],
   declarations: [
     AppComponent,
@@ -27,11 +27,6 @@ import { HomepageComponent } from './homepage/homepage.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    @Inject(APP_ID) private appId: string) {
-    const platform = isPlatformBrowser(platformId) ?
-      'in the browser' : 'on the server';
-    console.log(`Running ${platform} with appId=${appId}`);
+  constructor() {
   }
 }

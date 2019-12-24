@@ -12,4 +12,6 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
   }
 
+  title :string= "Title";
+  subtitle :string= "subtitle ";
 }
