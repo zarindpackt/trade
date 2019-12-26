@@ -1,0 +1,35 @@
+@import "../../styles/variables";
+
+.container {
+  background-color: $black;
+}
+.content {
+  color: $white;
+  padding: 20px 0 20px 0;
+}
+footer {
+  //position: absolute;
+}
+.useful_links_title, .help_supports_title, .socials_title {
+  font-weight: 900;
+}
+.useful_links, .help_supports, .socials ,.copyright{
+  list-style-type: none;
+  color: white;
+  padding: 0px;
+  font-size: 1.4rem;
+}
+
+.socials{
+    display: flex;
+    font-size: 3rem;
+}
+ .socials_link{
+     margin-right: 2rem;
+ }
+
+ a,a:hover,a:visited,a:focus{
+    color: white;
+  }
+
+ 

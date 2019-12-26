@@ -10,6 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HomepageComponent } from './homepage/homepage.component';
 import {SharedModule} from './shared/shared.module';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { TopBannerComponent } from './homepage/top-banner/top-banner.component';
+import { PlaceholdersComponent } from './homepage/placeholders/placeholders.component';
 
 
 @NgModule({
@@ -17,11 +21,15 @@ import {SharedModule} from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
   ],
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent,
+    HeaderComponent,
+    FooterComponent,
+    TopBannerComponent,
+    PlaceholdersComponent
   ],
   providers: [LogsService],
   bootstrap: [AppComponent]

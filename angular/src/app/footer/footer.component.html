@@ -1,0 +1,33 @@
+<footer class="container">
+  <div class="content">
+    <div class="col-md-4">
+      <h3 class="useful_links_title">Useful Links</h3>
+      <ul class="useful_links">
+        <li *ngFor="let useful_link of useful_links">
+          <a href="{{ useful_link.link }}">{{ useful_link.title }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h3 class="help_supports_title">Help & Support</h3>
+      <ul class="help_supports">
+        <li *ngFor="let help_support of help_supports">
+          <a href="{{ help_support.link }}">{{ help_support.title }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <div class="social">
+        <h3 class="socials_title">Social</h3>
+        <ul class="socials">
+            <li *ngFor="let social of socials" class="socials_link">
+              <a href="{{ social.link }}" target="_blank"><span class="{{social.icon}}"></span></a></li>
+            </ul>
+      </div>
+      <div class="copyright">
+        {{ copyright }}
+      </div>
+    </div>
+  </div>
+  
+</footer>
