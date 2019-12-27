@@ -7,6 +7,7 @@ import { LogsService } from './logs.service';
 
 import { isPlatformBrowser } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HomepageComponent } from './homepage/homepage.component';
 import {SharedModule} from './shared/shared.module';
@@ -14,6 +15,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TopBannerComponent } from './homepage/top-banner/top-banner.component';
 import { PlaceholdersComponent } from './homepage/placeholders/placeholders.component';
+import { LoginSignupFormComponent } from './homepage/login-signup-form/login-signup-form.component';
+import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 
 
 @NgModule({
@@ -22,6 +25,7 @@ import { PlaceholdersComponent } from './homepage/placeholders/placeholders.comp
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -29,7 +33,9 @@ import { PlaceholdersComponent } from './homepage/placeholders/placeholders.comp
     HeaderComponent,
     FooterComponent,
     TopBannerComponent,
-    PlaceholdersComponent
+    PlaceholdersComponent,
+    LoginSignupFormComponent,
+    WelcomepageComponent
   ],
   providers: [LogsService],
   bootstrap: [AppComponent]

@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="content">
+    <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+      <strong class="title">Registered Customers</strong>
+      <div class="form-group">
+        <p
+          [ngClass]="{
+            'has-error': isSubmitted && formControls.email.errors
+          }"
+        >
+          <label for="email" class="email_title">Email:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            formControlName="email"
+          />
+        </p>
+      </div>
+      <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+        <div *ngIf="formControls.email.errors.required">
+          Email is required
+        </div>
+      </div>
+      <div class="form-group">
+        <p
+          [ngClass]="{
+            'has-error': isSubmitted && formControls.password.errors
+          }"
+        >
+          <label for="password" class="password_title">Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Enter email"
+            formControlName="password"
+          />
+        </p>
+      </div>
+
+      <div
+        *ngIf="isSubmitted && formControls.password.errors"
+        class="help-block"
+      >
+        <div *ngIf="formControls.password.errors.required">
+          Password is required
+        </div>
+      </div>
+      <button type="submit" class="btn">Sign In</button>
+      <!-- <p>
+          <input type="submit" value="Log in" />
+        </p> -->
+    </form>
+  </div>
+</div>

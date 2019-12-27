@@ -22,3 +22,10 @@ nav a.active {
 .contact_us{
   color: #ec6611;
 }
+
+.router{
+  display: flex;
+      flex-direction: column;
+      min-height: -webkit-fill-available;
+      min-height: 100vh; 
+}

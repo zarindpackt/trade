@@ -1,9 +1,11 @@
 <div class="container">
   <div class="content">
-    <div class="col-md-4" *ngFor="let placeholder of placeholders">
-        <p>{{placeholder.icon}}</p>
-      <h4>{{placeholder.title}}</h4>
-        <div>{{placeholder.description}}</div>
+    <div class="col-md-4 placehold_div" *ngFor="let placeholder of placeholders">
+      <mat-card class="placehold">
+      <i class="{{ placeholder.icon }} place_icon"></i>
+      <span class="place_title">{{ placeholder.title }}</span>
+      <div class="place_desc">{{ placeholder.description }}</div>
+      </mat-card>
     </div>
   </div>
 </div>

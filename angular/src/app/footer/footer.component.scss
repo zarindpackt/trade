@@ -1,5 +1,8 @@
 @import "../../styles/variables";
 
+footer{
+  margin-top: auto;
+}
 .container {
   background-color: $black;
 }
@@ -7,9 +10,11 @@
   color: $white;
   padding: 20px 0 20px 0;
 }
-footer {
-  //position: absolute;
+
+.footer_content{
+  padding-left: 0;
 }
+
 .useful_links_title, .help_supports_title, .socials_title {
   font-weight: 900;
 }

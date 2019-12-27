@@ -1,3 +1,25 @@
+@import "../../../styles/variables";
 .content{
-    
+    margin:20px 0 20px 0;
+}
+
+.place_icon {
+  font-size: 2.5rem;
+  padding-right: 1rem;
+}
+
+.place_title {
+  font-size: 2.5rem;
+}
+
+.place_desc {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+}
+.placehold {
+  min-height: 18rem;
+}
+.placehold_div{
+  padding-left: 0;
+  padding-bottom: 1rem;
 }
