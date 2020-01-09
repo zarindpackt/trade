@@ -1,6 +1,6 @@
 <div class="container">
   <div class="content">
-    <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+    <form [formGroup]="loginForm" class="login-container" (ngSubmit)="onSubmit()">
       <strong class="title">Registered Customers</strong>
       <div class="form-group">
         <p
@@ -49,9 +49,8 @@
         </div>
       </div>
       <button type="submit" class="btn">Sign In</button>
-      <!-- <p>
-          <input type="submit" value="Log in" />
-        </p> -->
+      <button type="submit" class="btn register" routerLink="/register">Register</button>
+    
     </form>
   </div>
 </div>

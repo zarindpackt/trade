@@ -10,16 +10,21 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-declarations: [],
+declarations: [
+  HeaderComponent,
+  FooterComponent
+],
 imports: [
 CommonModule,
   FormsModule,
   HttpClientModule,
   HttpModule,
-  MatMenuModule,
   ReactiveFormsModule,
+  MatMenuModule,
   MatButtonModule,
   MatIconModule,
   MatCardModule
@@ -33,7 +38,9 @@ exports: [
     ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    HeaderComponent,
+    FooterComponent
   ],
 })
 export class SharedModule { }

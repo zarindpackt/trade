@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   staticCdnUrl: 'https://static-dev.packt-cdn.com',
+  apiUrl : 'http://localhost:4200'
 };
 
 /*
