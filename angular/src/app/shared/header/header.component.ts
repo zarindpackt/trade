@@ -10,14 +10,11 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   currentUser  : any;
-  constructor(
+  constructor(                                                  
     private router : Router,
     private authservice : AuthService
   ) {
-    this.authservice.currentUser.subscribe(x=>this.currentUser = x);
-    if (this.authservice.currentUser) {
-      this.router.navigate(['/']);
-  }
+  this.authservice.currentUser.subscribe(x=>this.currentUser = x);
   }
   
   logout(){

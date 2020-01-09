@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
-import { Users } from "../../../users";
-import { AuthService } from "../../../services/auth.service";
-import { first } from 'rxjs/operators';
+import { Users } from "../../users";
+import { AuthService } from "../../services/auth.service";
+import { first } from "rxjs/operators";
 
 @Component({
   selector: "app-login-signup-form",
@@ -18,14 +18,14 @@ export class LoginSignupFormComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private route : ActivatedRoute,
+    private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder
   ) {
     //if already logged in
     if (this.authService.currentUserValue) {
-      this.router.navigate(['/welcome']);
-  }
+      this.router.navigate(["/welcome"]);
+    }
   }
 
   ngOnInit() {
@@ -33,32 +33,33 @@ export class LoginSignupFormComponent implements OnInit {
       email: ["", Validators.required],
       password: ["", Validators.required]
     });
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    console.log(this.returnUrl);
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/welcome";
   }
 
   get formControls() {
-    console.log(this.loginForm.controls, 'here is data');
+    console.log(this.loginForm.controls, "here is data");
     return this.loginForm.controls;
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.loginForm.value);
-    this.isSubmitted= true;
-    if(this.loginForm.invalid){
+    this.isSubmitted = true;
+    if (this.loginForm.invalid) {
       return;
     }
-    this.authService.login(this.formControls.email.value,this.formControls.password.value)
-    .pipe(first())
-    .subscribe(
-      data =>{
-        this.router.navigate([this.returnUrl]);
-      },
-      error =>{
-        this.error =error;
-      }
-    ) 
-
+    this.authService
+      .login(this.formControls.email.value, this.formControls.password.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate([this.returnUrl]);
+          console.log(this.returnUrl);
+        },
+        error => {
+          this.error = error;
+        }
+      );
   }
-
 }

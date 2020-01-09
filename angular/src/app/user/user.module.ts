@@ -11,15 +11,13 @@ import {
 } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { LoginpageComponent } from './loginpage/loginpage.component';
-import { TopBannerComponent } from './loginpage/top-banner/top-banner.component';
-import { PlaceholdersComponent } from './loginpage/placeholders/placeholders.component';
-import { LoginSignupFormComponent } from './loginpage/login-signup-form/login-signup-form.component';
-import { RegistrationComponent } from './loginpage/registration/registration.component';
+import { TopBannerComponent } from './login-signup-form/top-banner/top-banner.component';
+import { PlaceholdersComponent } from './login-signup-form/placeholders/placeholders.component';
+import { LoginSignupFormComponent } from './login-signup-form/login-signup-form.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
-    LoginpageComponent,
     TopBannerComponent,
     PlaceholdersComponent,
     LoginSignupFormComponent,
@@ -36,7 +34,6 @@ import { RegistrationComponent } from './loginpage/registration/registration.com
     ReactiveFormsModule
   ],
   exports: [
-    LoginpageComponent,
     TopBannerComponent,
     PlaceholdersComponent,
     LoginSignupFormComponent,

@@ -1,6 +1,11 @@
+<div><app-top-banner></app-top-banner></div>
 <div class="container">
   <div class="content">
-    <form [formGroup]="loginForm" class="login-container" (ngSubmit)="onSubmit()">
+    <form
+      [formGroup]="loginForm"
+      class="login-container"
+      (ngSubmit)="onSubmit()"
+    >
       <strong class="title">Registered Customers</strong>
       <div class="form-group">
         <p
@@ -39,7 +44,6 @@
           />
         </p>
       </div>
-
       <div
         *ngIf="isSubmitted && formControls.password.errors"
         class="help-block"
@@ -49,8 +53,10 @@
         </div>
       </div>
       <button type="submit" class="btn">Sign In</button>
-      <button type="submit" class="btn register" routerLink="/register">Register</button>
-    
+      <button type="submit" class="btn register" routerLink="/register">
+        Register
+      </button>
     </form>
   </div>
 </div>
+<div><app-placeholders></app-placeholders></div>

@@ -25,9 +25,7 @@ export class AuthService {
     return this.http.post<any>(`{apiUrl}/users/authenticate`, { email, password })
     .pipe(map(user =>{
       localStorage.setItem('currentUser',JSON.stringify(user))
-      console.log('here is one' ,this.currentUser);
       this.currentUserSubject.next(user);
-      console.log('here is two', this.currentUserSubject.next(user))
       return user;
     }))
   }
