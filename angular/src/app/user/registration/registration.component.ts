@@ -9,6 +9,7 @@ import {
 import { Router } from "@angular/router";
 import { UserService } from "src/app/services/user.service";
 import { first } from "rxjs/operators";
+import { MustMatch } from 'src/app/helpers/customvalidator';
 
 @Component({
   selector: "app-registration",
@@ -19,7 +20,7 @@ export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   error: string;
-  title = 'Registration for Trade Account';
+  title = "Registration for Trade Account";
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,19 +35,25 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      firstName: ["", Validators.required],
-      lastName: ["", Validators.required],
-      email: ["", Validators.required],
-      password: ["", [Validators.required, Validators.minLength(6)]]
-    });
+    this.registerForm = this.formBuilder.group(
+      {
+        firstName: ["", Validators.required],
+        lastName: ["", Validators.required],
+        email: ["", Validators.required],
+        password: ["", [Validators.required, Validators.minLength(6)]],
+        confirmpassword: ["", Validators.required]
+      },
+      {
+        validator:  MustMatch('password', 'confirmpassword')
+      }
+    );
   }
 
   get formControls() {
-    console.log(this.registerForm.controls, "here is form data");
+    //console.log(this.registerForm.controls, "here is form data");
     return this.registerForm.controls;
   }
-
+  
   onSubmit() {
     this.submitted = true;
 
@@ -66,5 +73,6 @@ export class RegistrationComponent implements OnInit {
           this.error = error;
         }
       );
+      alert('SUCCESS!!' + JSON.stringify(this.registerForm.value))
   }
 }

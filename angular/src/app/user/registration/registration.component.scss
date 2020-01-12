@@ -1,34 +1,36 @@
 @import "../../../styles/variables";
 
-.content{
-    width : 50%;
-    margin : 20px 50px 20px 50px;
-    text-align:center;
+.content {
+  width: 50%;
+  margin: 20px 50px 20px 50px;
+  text-align: center;
 }
 
-h2{
-    color:$primary-color;
-    font-size: 5rem;
-    font-weight: 900;
+h2 {
+  color: $primary-color;
+  font-size: 5rem;
+  font-weight: 900;
 }
 
-.firstname_title,.lastname_title,.email_title , .password_title{
-    font-size: 1.4rem;
-    float: left;
+.firstname_title,
+.lastname_title,
+.email_title,
+.password_title {
+  font-size: 1.4rem;
+  float: left;
 }
-.btn{
-    background-color:$primary-color;
-    font-weight: 700;
-    color: $white;
-}
-
-.cancel
-{
-    margin-left: 10px;
+.btn {
+  background-color: $primary-color;
+  font-weight: 700;
+  color: $white;
 }
 
-.help-block{
-    font-size: 1.4rem;
-    color: red;
-    text-align: left;
+.cancel {
+  margin-left: 10px;
+}
+
+.help-block {
+  font-size: 1.4rem;
+  color: red;
+  text-align: left;
 }
