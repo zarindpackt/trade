@@ -12,11 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
 declarations: [
   HeaderComponent,
-  FooterComponent
+  FooterComponent,
+  AlertComponent
 ],
 imports: [
 CommonModule,
@@ -27,7 +29,7 @@ CommonModule,
   MatMenuModule,
   MatButtonModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
 ],
 exports: [
   CommonModule,
@@ -40,7 +42,8 @@ exports: [
     MatIconModule,
     MatCardModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AlertComponent
   ],
 })
 export class SharedModule { }

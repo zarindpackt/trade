@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { Users } from "../../users";
 import { AuthService } from "../../services/auth.service";
 import { first } from "rxjs/operators";
+import { AlertService } from "src/app/services/alert.service";
 
 @Component({
   selector: "app-login-signup-form",
@@ -14,13 +15,13 @@ export class LoginSignupFormComponent implements OnInit {
   loginForm: FormGroup;
   isSubmitted = false;
   returnUrl: string;
-  error: any;
 
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private alertservice: AlertService
   ) {
     //if already logged in
     if (this.authService.currentUserValue) {
@@ -30,7 +31,7 @@ export class LoginSignupFormComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ["", Validators.required],
+      email: ["", [Validators.required, Validators.email]],
       password: ["", Validators.required]
     });
 
@@ -39,12 +40,12 @@ export class LoginSignupFormComponent implements OnInit {
   }
 
   get formControls() {
-    console.log(this.loginForm.controls, "here is data");
+    //console.log(this.loginForm.controls, "here is data");
     return this.loginForm.controls;
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
+    console.log(this.loginForm.value,this.formControls.email.value, this.formControls.password.value);
     this.isSubmitted = true;
     if (this.loginForm.invalid) {
       return;
@@ -55,10 +56,10 @@ export class LoginSignupFormComponent implements OnInit {
       .subscribe(
         data => {
           this.router.navigate([this.returnUrl]);
-          console.log(this.returnUrl);
         },
         error => {
-          this.error = error;
+          console.log(error);
+          this.alertservice.error(error);
         }
       );
   }

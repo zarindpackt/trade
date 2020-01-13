@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 import { UserService } from "src/app/services/user.service";
 import { first } from "rxjs/operators";
 import { MustMatch } from 'src/app/helpers/customvalidator';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: "app-registration",
@@ -19,14 +20,14 @@ import { MustMatch } from 'src/app/helpers/customvalidator';
 export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
-  error: string;
   title = "Registration for Trade Account";
 
   constructor(
     private formBuilder: FormBuilder,
     private authservice: AuthService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private alertservice : AlertService
   ) {
     //if already logged in
     if (this.authservice.currentUserValue) {
@@ -39,7 +40,7 @@ export class RegistrationComponent implements OnInit {
       {
         firstName: ["", Validators.required],
         lastName: ["", Validators.required],
-        email: ["", Validators.required],
+        email: ['', [Validators.required, Validators.email]],
         password: ["", [Validators.required, Validators.minLength(6)]],
         confirmpassword: ["", Validators.required]
       },
@@ -65,12 +66,13 @@ export class RegistrationComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          this.alertservice.success('Registration successful', true);
           this.router.navigate(["/login"], {
             queryParams: { registered: true }
           });
         },
         error => {
-          this.error = error;
+          this.alertservice.error(error);
         }
       );
       alert('SUCCESS!!' + JSON.stringify(this.registerForm.value))

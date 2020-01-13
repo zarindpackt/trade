@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="content">
+            <div *ngIf="message" [ngClass]="message.cssClass">{{message.text}}
+                    <a class="close" (click)="removeAlert()">&times;</a>
+            </div>
+    </div>
+</div>

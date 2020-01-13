@@ -6,7 +6,7 @@ import {
   HttpResponseBase,
   HttpResponse
 } from "@angular/common/http";
-import { Observable, of } from "rxjs";
+import { Observable, of, throwError } from "rxjs";
 import { delay, mergeMap, materialize, dematerialize } from "rxjs/operators";
 
 // let users = [
@@ -18,12 +18,9 @@ import { delay, mergeMap, materialize, dematerialize } from "rxjs/operators";
 //     password: "test"
 //   }
 // ];
-let users = JSON.parse(localStorage.getItem('users')) || [];
+let users = JSON.parse(localStorage.getItem("users")) || [];
 export class FakeBackendInterceptor {
-  intercept(
-    request: HttpRequest<any>,
-    next: HttpHandler
-  ){
+  intercept(request: HttpRequest<any>, next: HttpHandler) {
     const { url, method, body, headers } = request;
 
     return of(null)
@@ -38,8 +35,6 @@ export class FakeBackendInterceptor {
           return authenticate();
         case url.endsWith("/users/register") && method === "POST":
           return register();
-        // case url.endsWith('/users') && method == 'GET':
-        // return getUsers();
         default:
           // pass through any requests not handled above
           return next.handle(request);
@@ -77,9 +72,10 @@ export class FakeBackendInterceptor {
       return ok();
     }
 
+
     function error(message) {
-      return of({ error: { message } });
-    }
+      return throwError(  message );
+  }
 
     function ok(body?) {
       return of(new HttpResponse({ status: 200, body }));
