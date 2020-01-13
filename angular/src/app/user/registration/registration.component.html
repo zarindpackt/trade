@@ -1,23 +1,24 @@
 <div class="container">
   <div class="content">
-    <h2>{{ title }}</h2>
+    <h2 class="title">{{ title }}</h2>
     <form
       [formGroup]="registerForm"
-      class="register-container row"
+      class="register-container"
       (ngSubmit)="onSubmit()"
     >
+    <div class="row">
       <div class="personal_details col-md-6">
         <label class="header_title">
           Personal Details
         </label>
         <div class="section">
             <div class="form-group">
-                <label for="nametitle" class="section_title"> Title</label>
+                <label for="nametitle" class="section_title_rqd"> Title</label>
                 <select class="form-control"
                 [ngClass]="{
                   'is-invalid': submitted && formControls.title.errors
                 }"
-                formControlName="title">
+                formControlName="title" >
                     <option value="" disabled>Choose your title</option>
                     <option>Mr.</option>
                     <option>Mrs.</option>
@@ -36,7 +37,7 @@
                 </div>
               </div>
           <div class="form-group">
-            <label for="firstName" class="section_title">First Name</label>
+            <label for="firstName" class="section_title_rqd">First Name</label>
             <input
               type="text"
               formControlName="firstName"
@@ -46,16 +47,19 @@
               }"
             />
             <div
-              *ngIf="submitted && formControls.firstName.errors"
+              *ngIf="formControls.firstName.touched && formControls.firstName.errors || submitted"
               class="  help-block"
             >
               <div *ngIf="formControls.firstName.errors.required">
                 Firstname is required
               </div>
+              <div *ngIf="formControls.firstName.errors.pattern">
+                Please enter a valid firstname
+              </div>
             </div>
           </div>
           <div class="form-group">
-            <label for="lastName" class="section_title">Last Name</label>
+            <label for="lastName" class="section_title_rqd">Last Name</label>
             <input
               type="text"
               formControlName="lastName"
@@ -65,16 +69,19 @@
               }"
             />
             <div
-              *ngIf="submitted && formControls.lastName.errors"
+              *ngIf="formControls.lastName.touched && formControls.lastName.errors || submitted"
               class="  help-block"
             >
               <div *ngIf="formControls.lastName.errors.required">
                 Lastname is required
               </div>
+              <div *ngIf="formControls.lastName.errors.pattern">
+                Please enter a valid lastname
+              </div>
             </div>
           </div>
           <div class="form-group">
-              <label for="businessName" class="section_title">Business Name</label>
+              <label for="businessName" class="section_title_rqd">Business Name</label>
               <input
                 type="text"
                 formControlName="businessName"
@@ -92,14 +99,34 @@
                 </div>
               </div>
             </div>
+            <div class="form-group">
+              <label for="phoneNumber" class="section_title_rqd">Phone Number</label>
+              <input
+                type="text"
+                formControlName="phoneNumber"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid': submitted && formControls.phoneNumber.errors
+                }"
+              />
+              <div
+                *ngIf="submitted && formControls.phoneNumber.errors"
+                class="  help-block"
+              >
+                <div *ngIf="formControls.phoneNumber.errors.required">
+                    Phone Number is required
+                </div>
+              </div>
+            </div>
         </div>
       </div>
       <div class="registration_details col-md-6">
         <label class="header_title">
           Registration Details
         </label>
+        <div class="section">
         <div class="form-group">
-          <label for="email" class="section_title">Email</label>
+          <label for="email" class="section_title_rqd">Email</label>
           <input
             type="text"
             formControlName="email"
@@ -119,7 +146,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="password" class="section_title">Password</label>
+          <label for="password" class="section_title_rqd">Password</label>
           <input
             type="text"
             formControlName="password"
@@ -147,7 +174,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="password" class="section_title">Confirm Password</label>
+          <label for="password" class="section_title_rqd">Confirm Password</label>
           <input
             type="password"
             formControlName="confirmpassword"
@@ -175,10 +202,14 @@
           </div>
         </div>
       </div>
+      </div>
+    </div>
+    <div class="btn_class">
       <button type="submit" class="btn">Register</button>
       <button type="submit" class="btn cancel" routerLink="/login">
         Cancel
       </button>
+    </div>
     </form>
   </div>
 </div>

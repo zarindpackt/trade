@@ -66,7 +66,7 @@ export class FakeBackendInterceptor {
         return error("Email" + user.email + "is alredy taken");
       }
 
-      user.id = users.length ? Math.max(users.map(x => x.id)) + 1 : 1;
+      user.id = users.length ? Math.max(...users.map(x => x.id)) + 1 : 1;
       users.push(user);
       localStorage.setItem("users", JSON.stringify(users));
       return ok();
