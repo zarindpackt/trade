@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
 .content {
-  width: 50%;
+  //width: 50%;
   margin: 20px 50px 20px 50px;
   text-align: center;
 }
@@ -11,11 +11,12 @@ h2 {
   font-size: 5rem;
   font-weight: 900;
 }
+.header_title{
+  font-size: 1.8rem;
+  text-align: left;
+}
 
-.firstname_title,
-.lastname_title,
-.email_title,
-.password_title {
+ .section_title {
   font-size: 1.4rem;
   float: left;
 }
@@ -33,4 +34,10 @@ h2 {
   font-size: 1.4rem;
   color: red;
   text-align: left;
+}
+
+.registration_details, .personal_details{
+ display: inline-block;
+ box-sizing: border-box;
+
 }
