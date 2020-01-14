@@ -13,9 +13,10 @@ h2 {
 .header_title {
   font-size: 1.8rem;
   text-align: left;
+  margin-left: 1rem;
 }
 
-.section_title_rqd {
+.section_title_rqd, .section_title {
   font-size: 1.4rem;
   float: left;
 }
@@ -25,17 +26,26 @@ h2 {
   color: red;
 }
 .btn {
-  background-color: $primary-color;
   font-weight: 700;
   color: $white;
+}
+
+.register{
+  background-color: $primary-color;
 }
 
 .title,.btn_class{
   text-align: center;
 }
 
-.cancel {
+.cancel,
+.cancel:visited,
+.cancel:focus,
+.cancel:hover,
+.cancel:active {
   margin-left: 10px;
+  background-color: darkgray;
+  border: darkgray;
 }
 
 .help-block {
@@ -45,7 +55,9 @@ h2 {
 }
 
 .registration_details,
-.personal_details {
+.personal_details,
+.billing_address,
+.shipping_address {
   margin: 2rem 0 2rem 0;
 }
 
@@ -54,4 +66,8 @@ h2 {
   padding: 2rem;
   border : $dark-grey 0.1rem solid;
   border-radius: 1rem;
+}
+
+.register_text{
+  font-size: 1.4rem;
 }

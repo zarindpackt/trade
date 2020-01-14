@@ -9,8 +9,8 @@ import {
 import { Router } from "@angular/router";
 import { UserService } from "src/app/services/user.service";
 import { first } from "rxjs/operators";
-import { MustMatch } from 'src/app/helpers/customvalidator';
-import { AlertService } from 'src/app/services/alert.service';
+import { MustMatch } from "src/app/helpers/customvalidator";
+import { AlertService } from "src/app/services/alert.service";
 
 @Component({
   selector: "app-registration",
@@ -27,7 +27,7 @@ export class RegistrationComponent implements OnInit {
     private authservice: AuthService,
     private router: Router,
     private userService: UserService,
-    private alertservice : AlertService
+    private alertservice: AlertService
   ) {
     //if already logged in
     if (this.authservice.currentUserValue) {
@@ -36,33 +36,100 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.registerForm = this.formBuilder.group(
-      { 
-        title: ["",Validators.required],
-        firstName: new FormControl('', [  
-          Validators.required, 
-          Validators.pattern('^[a-zA-Z ]*$')]),
-          lastName: new FormControl('', [  
-            Validators.required, 
-            Validators.pattern('^[a-zA-Z ]*$')]),
-        businessName:["", Validators.required],
-        phoneNumber:["", Validators.required],
-        email: ['', [Validators.required, Validators.email]],
-        password: ["", [Validators.required, Validators.minLength(6)]],
-        confirmpassword: ["", Validators.required],
-        
+      {
+        title: [null, Validators.required],
+        firstName: new FormControl(null, [
+          Validators.required,
+          Validators.pattern("^[a-zA-Z ]*$")
+        ]),
+        lastName: new FormControl(null, [
+          Validators.required,
+          Validators.pattern("^[a-zA-Z ]*$")
+        ]),
+        businessName: new FormControl(null, [
+          Validators.required
+        ]),
+        phoneNumber: new FormControl(null, [
+          Validators.required,
+          Validators.pattern("^[0-9]*$"),
+          Validators.maxLength(10),
+          Validators.minLength(10)
+        ]),
+        email: 
+        new FormControl(null, [
+          Validators.required,
+          Validators.email
+        ]),
+        password: new FormControl(null, [
+          Validators.required,
+          Validators.minLength(6)
+        ]),
+        confirmpassword: 
+        new FormControl(null, [
+          Validators.required
+        ]),
+        address_line_1: 
+        new FormControl(null, [
+          Validators.required
+        ]),
+        address_line_2: 
+        new FormControl(),
+        country: 
+        new FormControl(null, [
+          Validators.required
+        ]),
+        town_city: 
+        new FormControl(null, [
+          Validators.required
+        ]),
+        postcode: 
+        new FormControl(null, [
+          Validators.required,
+          Validators.pattern("^[0-9]*$"),
+        ]),
+        vat_gst: 
+        new FormControl(null, [
+          Validators.required,
+          Validators.pattern("^[0-9]*$"),
+        ]),
+        ship_address_line_1: 
+        new FormControl(null, [
+          Validators.required
+        ]),
+        ship_address_line_2: 
+        new FormControl(),
+        ship_town_city: 
+        new FormControl(null, [
+          Validators.required
+        ]),
+        ship_country: 
+        new FormControl(null, [
+          Validators.required
+        ]),
+        ship_postcode: 
+        new FormControl(null, [
+          Validators.required,
+          Validators.pattern("^[0-9]*$"),
+        ]),
+        ship_phoneNumber: new FormControl(null, [
+          Validators.required,
+          Validators.pattern("^[0-9]*$"),
+          Validators.maxLength(10),
+          Validators.minLength(10)
+        ]),
       },
       {
-        validator:  MustMatch('password', 'confirmpassword')
+        validator: MustMatch("password", "confirmpassword")
       }
     );
   }
 
   get formControls() {
-    //console.log(this.registerForm.controls, "here is form data");
     return this.registerForm.controls;
   }
-  
+
   onSubmit() {
     this.submitted = true;
 
@@ -74,7 +141,7 @@ export class RegistrationComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.alertservice.success('Registration successful', true);
+          this.alertservice.success("Registration successful", true);
           this.router.navigate(["/login"], {
             queryParams: { registered: true }
           });
@@ -83,6 +150,6 @@ export class RegistrationComponent implements OnInit {
           this.alertservice.error(error);
         }
       );
-      alert('SUCCESS!!' + JSON.stringify(this.registerForm.value))
+    alert("SUCCESS!!" + JSON.stringify(this.registerForm.value));
   }
 }
