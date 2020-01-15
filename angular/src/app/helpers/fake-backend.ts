@@ -72,10 +72,9 @@ export class FakeBackendInterceptor {
       return ok();
     }
 
-
     function error(message) {
-      return throwError(  message );
-  }
+      return throwError(message);
+    }
 
     function ok(body?) {
       return of(new HttpResponse({ status: 200, body }));

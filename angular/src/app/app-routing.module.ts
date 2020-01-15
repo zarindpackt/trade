@@ -8,13 +8,19 @@ import { UserModule } from "./user/user.module";
 
 const routes: Routes = [
   { path: "", component: LoginSignupFormComponent, pathMatch: "full" },
-  { path: "welcome", component: WelcomepageComponent,canActivate: [AuthGuard] },
+  {
+    path: "welcome",
+    component: WelcomepageComponent,
+    canActivate: [AuthGuard]
+  },
   { path: "register", component: RegistrationComponent },
   { path: "**", redirectTo: "" }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{scrollPositionRestoration: 'enabled'})],
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled" })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

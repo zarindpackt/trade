@@ -24,7 +24,7 @@ export class ContentfulService {
     });
   }
 
-  getTopBanner(query?: object): Promise<Entry<any>> {
+  getTopBanner(query?: object): Promise<Entry<any>[]> {
     return this.client
       .getEntries(
         Object.assign(
@@ -34,10 +34,7 @@ export class ContentfulService {
           query
         )
       )
-      .then(res => {
-        console.log('getTopBanner', res.items);
-        return res.items[0];
-      });
+      .then(res => res.items);
   }
 
   getPlaceholder(query?: object): Promise<Entry<any>[]> {

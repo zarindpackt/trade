@@ -2,12 +2,11 @@
 header {
   background-color: rgb(60, 60, 59);
   height: 75px;
-  nav
-    .logo {
-      float: left;
-      width: 135px;
-      margin: 15px 0 15px 0;
-    }
+  nav .logo {
+    float: left;
+    width: 135px;
+    margin: 15px 0 15px 0;
+  }
 }
 .contact_us {
   color: $primary-color;

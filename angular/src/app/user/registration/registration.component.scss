@@ -16,25 +16,27 @@ h2 {
   margin-left: 1rem;
 }
 
-.section_title_rqd, .section_title {
+.section_title_rqd,
+.section_title {
   font-size: 1.4rem;
   float: left;
 }
 
 .section_title_rqd::after {
   content: "*";
-  color: red;
+  color: $red;
 }
 .btn {
   font-weight: 700;
   color: $white;
 }
 
-.register{
+.register {
   background-color: $primary-color;
 }
 
-.title,.btn_class{
+.title,
+.btn_class {
   text-align: center;
 }
 
@@ -50,7 +52,7 @@ h2 {
 
 .help-block {
   font-size: 1.4rem;
-  color: red;
+  color: $red;
   text-align: left;
 }
 
@@ -64,10 +66,10 @@ h2 {
 .section {
   background-color: $light-grey;
   padding: 2rem;
-  border : $dark-grey 0.1rem solid;
+  border: $dark-grey 0.1rem solid;
   border-radius: 1rem;
 }
 
-.register_text{
+.register_text {
   font-size: 1.4rem;
 }

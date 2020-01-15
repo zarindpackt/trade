@@ -36,7 +36,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.registerForm = this.formBuilder.group(
       {
         title: [null, Validators.required],
@@ -48,77 +47,45 @@ export class RegistrationComponent implements OnInit {
           Validators.required,
           Validators.pattern("^[a-zA-Z ]*$")
         ]),
-        businessName: new FormControl(null, [
-          Validators.required
-        ]),
+        businessName: new FormControl(null, [Validators.required]),
         phoneNumber: new FormControl(null, [
           Validators.required,
           Validators.pattern("^[0-9]*$"),
           Validators.maxLength(10),
           Validators.minLength(10)
         ]),
-        email: 
-        new FormControl(null, [
-          Validators.required,
-          Validators.email
-        ]),
+        email: new FormControl(null, [Validators.required, Validators.email]),
         password: new FormControl(null, [
           Validators.required,
           Validators.minLength(6)
         ]),
-        confirmpassword: 
-        new FormControl(null, [
-          Validators.required
-        ]),
-        address_line_1: 
-        new FormControl(null, [
-          Validators.required
-        ]),
-        address_line_2: 
-        new FormControl(),
-        country: 
-        new FormControl(null, [
-          Validators.required
-        ]),
-        town_city: 
-        new FormControl(null, [
-          Validators.required
-        ]),
-        postcode: 
-        new FormControl(null, [
+        confirmpassword: new FormControl(null, [Validators.required]),
+        address_line_1: new FormControl(null, [Validators.required]),
+        address_line_2: new FormControl(),
+        country: new FormControl(null, [Validators.required]),
+        town_city: new FormControl(null, [Validators.required]),
+        postcode: new FormControl(null, [
           Validators.required,
-          Validators.pattern("^[0-9]*$"),
+          Validators.pattern("^[0-9]*$")
         ]),
-        vat_gst: 
-        new FormControl(null, [
+        vat_gst: new FormControl(null, [
           Validators.required,
-          Validators.pattern("^[0-9]*$"),
+          Validators.pattern("^[0-9]*$")
         ]),
-        ship_address_line_1: 
-        new FormControl(null, [
-          Validators.required
-        ]),
-        ship_address_line_2: 
-        new FormControl(),
-        ship_town_city: 
-        new FormControl(null, [
-          Validators.required
-        ]),
-        ship_country: 
-        new FormControl(null, [
-          Validators.required
-        ]),
-        ship_postcode: 
-        new FormControl(null, [
+        ship_address_line_1: new FormControl(null, [Validators.required]),
+        ship_address_line_2: new FormControl(),
+        ship_town_city: new FormControl(null, [Validators.required]),
+        ship_country: new FormControl(null, [Validators.required]),
+        ship_postcode: new FormControl(null, [
           Validators.required,
-          Validators.pattern("^[0-9]*$"),
+          Validators.pattern("^[0-9]*$")
         ]),
         ship_phoneNumber: new FormControl(null, [
           Validators.required,
           Validators.pattern("^[0-9]*$"),
           Validators.maxLength(10),
           Validators.minLength(10)
-        ]),
+        ])
       },
       {
         validator: MustMatch("password", "confirmpassword")

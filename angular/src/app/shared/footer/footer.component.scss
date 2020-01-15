@@ -1,6 +1,6 @@
 @import "../../../styles/variables";
 
-footer{
+footer {
   margin-top: auto;
 }
 .container {
@@ -11,30 +11,36 @@ footer{
   padding: 20px 0 20px 0;
 }
 
-.footer_content{
+.footer_content {
   padding-left: 0;
 }
 
-.useful_links_title, .help_supports_title, .socials_title {
+.useful_links_title,
+.help_supports_title,
+.socials_title {
   font-weight: 900;
 }
-.useful_links, .help_supports, .socials ,.copyright{
+.useful_links,
+.help_supports,
+.socials,
+.copyright {
   list-style-type: none;
   color: white;
   padding: 0px;
   font-size: 1.4rem;
 }
 
-.socials{
-    display: flex;
-    font-size: 3rem;
+.socials {
+  display: flex;
+  font-size: 3rem;
 }
- .socials_link{
-     margin-right: 2rem;
- }
+.socials_link {
+  margin-right: 2rem;
+}
 
- a,a:hover,a:visited,a:focus{
-    color: white;
-  }
-
- 
+a,
+a:hover,
+a:visited,
+a:focus {
+  color: white;
+}

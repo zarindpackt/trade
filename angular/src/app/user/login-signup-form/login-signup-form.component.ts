@@ -45,7 +45,11 @@ export class LoginSignupFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value,this.formControls.email.value, this.formControls.password.value);
+    console.log(
+      this.loginForm.value,
+      this.formControls.email.value,
+      this.formControls.password.value
+    );
     this.isSubmitted = true;
     if (this.loginForm.invalid) {
       return;

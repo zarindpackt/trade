@@ -12,8 +12,8 @@ import { WelcomepageComponent } from "./welcomepage/welcomepage.component";
 import { UserModule } from "./user/user.module";
 import { FakeBackendInterceptor } from "./helpers/fake-backend";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
-import { JwtInterceptor } from './helpers/jwt.interceptor';
-import { ErrorInterceptor } from './helpers/error.interceptor';
+import { JwtInterceptor } from "./helpers/jwt.interceptor";
+import { ErrorInterceptor } from "./helpers/error.interceptor";
 
 @NgModule({
   imports: [
@@ -32,7 +32,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
       multi: true
     },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

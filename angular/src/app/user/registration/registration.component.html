@@ -1,7 +1,11 @@
 <div class="container">
   <div class="content">
     <h2 class="title">{{ title }}</h2>
-    <form [formGroup]="registerForm" class="register-container" (ngSubmit)="onSubmit()">
+    <form
+      [formGroup]="registerForm"
+      class="register-container"
+      (ngSubmit)="onSubmit()"
+    >
       <div class="row">
         <div class="personal_details col-md-6">
           <label class="header_title">
@@ -19,17 +23,34 @@
                 <option>Ms.</option>
               </select>
 
-              <div *ngIf="(formControls.title.touched || submitted) && formControls.title.errors" class="  help-block">
+              <div
+                *ngIf="
+                  (formControls.title.touched || submitted) &&
+                  formControls.title.errors
+                "
+                class="  help-block"
+              >
                 <div *ngIf="formControls.title.errors.required">
                   Title is required
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <label for="firstName" class="section_title_rqd">First Name</label>
-              <input type="text" formControlName="firstName" class="form-control" />
-              <div *ngIf="(formControls.firstName.touched || submitted) && formControls.firstName.errors"
-                class="  help-block">
+              <label for="firstName" class="section_title_rqd"
+                >First Name</label
+              >
+              <input
+                type="text"
+                formControlName="firstName"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.firstName.touched || submitted) &&
+                  formControls.firstName.errors
+                "
+                class="  help-block"
+              >
                 <div *ngIf="formControls.firstName.errors.required">
                   First name is required
                 </div>
@@ -40,9 +61,18 @@
             </div>
             <div class="form-group">
               <label for="lastName" class="section_title_rqd">Last Name</label>
-              <input type="text" formControlName="lastName" class="form-control" />
-              <div *ngIf="(formControls.lastName.touched || submitted) && formControls.lastName.errors"
-                class="  help-block">
+              <input
+                type="text"
+                formControlName="lastName"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.lastName.touched || submitted) &&
+                  formControls.lastName.errors
+                "
+                class="  help-block"
+              >
                 <div *ngIf="formControls.lastName.errors.required">
                   Last name is required
                 </div>
@@ -52,27 +82,55 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="businessName" class="section_title_rqd">Business Name</label>
-              <input type="text" formControlName="businessName" class="form-control" />
-              <div *ngIf="(formControls.businessName.touched || submitted) && formControls.businessName.errors"
-                class="  help-block">
+              <label for="businessName" class="section_title_rqd"
+                >Business Name</label
+              >
+              <input
+                type="text"
+                formControlName="businessName"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.businessName.touched || submitted) &&
+                  formControls.businessName.errors
+                "
+                class="  help-block"
+              >
                 <div *ngIf="formControls.businessName.errors.required">
                   Business Name is required
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <label for="phoneNumber" class="section_title_rqd">Phone Number</label>
-              <input type="text" formControlName="phoneNumber" class="form-control" maxlength="10"/>
-              <div *ngIf="(formControls.phoneNumber.touched || submitted) && formControls.phoneNumber.errors"
-                class="  help-block">
+              <label for="phoneNumber" class="section_title_rqd"
+                >Phone Number</label
+              >
+              <input
+                type="text"
+                formControlName="phoneNumber"
+                class="form-control"
+                maxlength="10"
+              />
+              <div
+                *ngIf="
+                  (formControls.phoneNumber.touched || submitted) &&
+                  formControls.phoneNumber.errors
+                "
+                class="  help-block"
+              >
                 <div *ngIf="formControls.phoneNumber.errors.required">
                   Phone Number is required
                 </div>
                 <div *ngIf="formControls.phoneNumber.errors.pattern">
                   Please enter a valid Phone Number
                 </div>
-                <div *ngIf="formControls.phoneNumber.errors.maxlength || formControls.phoneNumber.errors.minlength">
+                <div
+                  *ngIf="
+                    formControls.phoneNumber.errors.maxlength ||
+                    formControls.phoneNumber.errors.minlength
+                  "
+                >
                   Please enter a valid 10 digit Phone Number
                 </div>
               </div>
@@ -87,7 +145,13 @@
             <div class="form-group">
               <label for="email" class="section_title_rqd">Email</label>
               <input type="text" formControlName="email" class="form-control" />
-              <div *ngIf="(formControls.email.touched || submitted) && formControls.email.errors" class=" help-block">
+              <div
+                *ngIf="
+                  (formControls.email.touched || submitted) &&
+                  formControls.email.errors
+                "
+                class=" help-block"
+              >
                 <div *ngIf="formControls.email.errors.required">
                   Email is required
                 </div>
@@ -98,26 +162,58 @@
             </div>
             <div class="form-group">
               <label for="password" class="section_title_rqd">Password</label>
-              <input type="text" formControlName="password" class="form-control" />
-              <div *ngIf="(formControls.password.touched || submitted) && formControls.password.errors"
-                class=" help-block">
-                <div *ngIf="formControls.password.errors.required" class=" help-block">
+              <input
+                type="text"
+                formControlName="password"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.password.touched || submitted) &&
+                  formControls.password.errors
+                "
+                class=" help-block"
+              >
+                <div
+                  *ngIf="formControls.password.errors.required"
+                  class=" help-block"
+                >
                   Password is required
                 </div>
-                <div *ngIf="formControls.password.errors.minlength" class=" help-block">
+                <div
+                  *ngIf="formControls.password.errors.minlength"
+                  class=" help-block"
+                >
                   Password must be at least 6 characters
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <label for="password" class="section_title_rqd">Confirm Password</label>
-              <input type="password" formControlName="confirmpassword" class="form-control" />
-              <div *ngIf="(formControls.confirmpassword.touched || submitted) && formControls.confirmpassword.errors"
-                class=" help-block">
-                <div *ngIf="formControls.confirmpassword.errors.required" class=" help-block">
+              <label for="password" class="section_title_rqd"
+                >Confirm Password</label
+              >
+              <input
+                type="password"
+                formControlName="confirmpassword"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.confirmpassword.touched || submitted) &&
+                  formControls.confirmpassword.errors
+                "
+                class=" help-block"
+              >
+                <div
+                  *ngIf="formControls.confirmpassword.errors.required"
+                  class=" help-block"
+                >
                   Confirm Password is required
                 </div>
-                <div *ngIf="formControls.confirmpassword.errors.mustMatch" class=" help-block">
+                <div
+                  *ngIf="formControls.confirmpassword.errors.mustMatch"
+                  class=" help-block"
+                >
                   Passwords must match
                 </div>
               </div>
@@ -133,24 +229,50 @@
           </label>
           <div class="section">
             <div class="form-group">
-              <label for="address_line_1" class="section_title_rqd">Address Line 1</label>
-              <input type="text" formControlName="address_line_1" class="form-control" />
-              <div *ngIf="(formControls.address_line_1.touched || submitted) && formControls.address_line_1.errors"
-                class=" help-block">
+              <label for="address_line_1" class="section_title_rqd"
+                >Address Line 1</label
+              >
+              <input
+                type="text"
+                formControlName="address_line_1"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.address_line_1.touched || submitted) &&
+                  formControls.address_line_1.errors
+                "
+                class=" help-block"
+              >
                 <div *ngIf="formControls.address_line_1.errors.required">
                   Address Line is required
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <label for="address_line_2" class="section_title">Address Line 2</label>
-              <input type="text" formControlName="address_line_2" class="form-control" />
+              <label for="address_line_2" class="section_title"
+                >Address Line 2</label
+              >
+              <input
+                type="text"
+                formControlName="address_line_2"
+                class="form-control"
+              />
             </div>
             <div class="form-group">
               <label for="town_city" class="section_title_rqd">Town/City</label>
-              <input type="text" formControlName="town_city" class="form-control" />
-              <div *ngIf="(formControls.town_city.touched || submitted) && formControls.town_city.errors"
-                class=" help-block">
+              <input
+                type="text"
+                formControlName="town_city"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.town_city.touched || submitted) &&
+                  formControls.town_city.errors
+                "
+                class=" help-block"
+              >
                 <div *ngIf="formControls.town_city.errors.required">
                   Town/City is required
                 </div>
@@ -158,8 +280,18 @@
             </div>
             <div class="form-group">
               <label for="country" class="section_title_rqd">Country</label>
-              <input type="text" formControlName="country" class="form-control" />
-              <div *ngIf="(formControls.country.touched || submitted) && formControls.country.errors" class=" help-block">
+              <input
+                type="text"
+                formControlName="country"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.country.touched || submitted) &&
+                  formControls.country.errors
+                "
+                class=" help-block"
+              >
                 <div *ngIf="formControls.country.errors.required">
                   Country is required
                 </div>
@@ -167,9 +299,18 @@
             </div>
             <div class="form-group">
               <label for="postcode" class="section_title_rqd">Post Code</label>
-              <input type="text" formControlName="postcode" class="form-control" />
-              <div *ngIf="(formControls.postcode.touched || submitted) && formControls.postcode.errors"
-                class="  help-block">
+              <input
+                type="text"
+                formControlName="postcode"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.postcode.touched || submitted) &&
+                  formControls.postcode.errors
+                "
+                class="  help-block"
+              >
                 <div *ngIf="formControls.postcode.errors.required">
                   Post Code is required
                 </div>
@@ -179,10 +320,21 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="vat_gst" class="section_title_rqd">VAT/GST Number</label>
-              <input type="text" formControlName="vat_gst" class="form-control" />
-              <div *ngIf="(formControls.vat_gst.touched || submitted) && formControls.vat_gst.errors"
-                class="  help-block">
+              <label for="vat_gst" class="section_title_rqd"
+                >VAT/GST Number</label
+              >
+              <input
+                type="text"
+                formControlName="vat_gst"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.vat_gst.touched || submitted) &&
+                  formControls.vat_gst.errors
+                "
+                class="  help-block"
+              >
                 <div *ngIf="formControls.vat_gst.errors.required">
                   VAT/GST Number is required
                 </div>
@@ -199,45 +351,94 @@
           </label>
           <div class="section">
             <div class="form-group">
-              <label for="ship_address_line_1" class="section_title_rqd">Address Line 1</label>
-              <input type="text" formControlName="ship_address_line_1" class="form-control" />
+              <label for="ship_address_line_1" class="section_title_rqd"
+                >Address Line 1</label
+              >
+              <input
+                type="text"
+                formControlName="ship_address_line_1"
+                class="form-control"
+              />
               <div
-                *ngIf="(formControls.ship_address_line_1.touched || submitted) && formControls.ship_address_line_1.errors"
-                class=" help-block">
+                *ngIf="
+                  (formControls.ship_address_line_1.touched || submitted) &&
+                  formControls.ship_address_line_1.errors
+                "
+                class=" help-block"
+              >
                 <div *ngIf="formControls.ship_address_line_1.errors.required">
                   Address Line is required
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <label for="ship_address_line_2" class="section_title">Address Line 2</label>
-              <input type="text" formControlName="ship_address_line_2" class="form-control" />
+              <label for="ship_address_line_2" class="section_title"
+                >Address Line 2</label
+              >
+              <input
+                type="text"
+                formControlName="ship_address_line_2"
+                class="form-control"
+              />
             </div>
             <div class="form-group">
-              <label for="ship_town_city" class="section_title_rqd">Town/City</label>
-              <input type="text" formControlName="ship_town_city" class="form-control" />
-              <div *ngIf="(formControls.ship_town_city.touched || submitted) && formControls.ship_town_city.errors"
-                class=" help-block">
+              <label for="ship_town_city" class="section_title_rqd"
+                >Town/City</label
+              >
+              <input
+                type="text"
+                formControlName="ship_town_city"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.ship_town_city.touched || submitted) &&
+                  formControls.ship_town_city.errors
+                "
+                class=" help-block"
+              >
                 <div *ngIf="formControls.ship_town_city.errors.required">
                   Town/City is required
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <label for="ship_country" class="section_title_rqd">Country</label>
-              <input type="text" formControlName="ship_country" class="form-control" />
-              <div *ngIf="(formControls.ship_country.touched || submitted) && formControls.ship_country.errors"
-                class=" help-block">
+              <label for="ship_country" class="section_title_rqd"
+                >Country</label
+              >
+              <input
+                type="text"
+                formControlName="ship_country"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.ship_country.touched || submitted) &&
+                  formControls.ship_country.errors
+                "
+                class=" help-block"
+              >
                 <div *ngIf="formControls.ship_country.errors.required">
                   Country is required
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <label for="ship_postcode" class="section_title_rqd">Post Code</label>
-              <input type="text" formControlName="ship_postcode" class="form-control" />
-              <div *ngIf="(formControls.ship_postcode.touched || submitted) && formControls.ship_postcode.errors"
-                class="  help-block">
+              <label for="ship_postcode" class="section_title_rqd"
+                >Post Code</label
+              >
+              <input
+                type="text"
+                formControlName="ship_postcode"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  (formControls.ship_postcode.touched || submitted) &&
+                  formControls.ship_postcode.errors
+                "
+                class="  help-block"
+              >
                 <div *ngIf="formControls.ship_postcode.errors.required">
                   Post Code is required
                 </div>
@@ -247,10 +448,22 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="ship_phoneNumber" class="section_title_rqd">Phone Number</label>
-              <input type="text" formControlName="ship_phoneNumber" class="form-control" maxlength="10"/>
-              <div *ngIf="(formControls.ship_phoneNumber.touched || submitted) && formControls.ship_phoneNumber.errors"
-                class="  help-block">
+              <label for="ship_phoneNumber" class="section_title_rqd"
+                >Phone Number</label
+              >
+              <input
+                type="text"
+                formControlName="ship_phoneNumber"
+                class="form-control"
+                maxlength="10"
+              />
+              <div
+                *ngIf="
+                  (formControls.ship_phoneNumber.touched || submitted) &&
+                  formControls.ship_phoneNumber.errors
+                "
+                class="  help-block"
+              >
                 <div *ngIf="formControls.ship_phoneNumber.errors.required">
                   Phone Number is required
                 </div>
@@ -258,7 +471,11 @@
                   Please enter a valid Phone Number
                 </div>
                 <div
-                  *ngIf="formControls.ship_phoneNumber.errors.maxlength || formControls.ship_phoneNumber.errors.minlength">
+                  *ngIf="
+                    formControls.ship_phoneNumber.errors.maxlength ||
+                    formControls.ship_phoneNumber.errors.minlength
+                  "
+                >
                   Please enter a valid 10 digit Phone Number
                 </div>
               </div>
@@ -267,7 +484,10 @@
         </div>
       </div>
       <div class="btn_class">
-        <p class="register_text">By clicking REGISTER, you are agreeing to our Policy and Terms & Conditions </p>
+        <p class="register_text">
+          By clicking REGISTER, you are agreeing to our Policy and Terms &
+          Conditions
+        </p>
         <button type="submit" class="btn register">Register</button>
         <button type="submit" class="btn cancel" routerLink="/login">
           Cancel
