@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { ContentfulService } from 'src/app/services/contentful.service';
+import { Entry } from 'contentful';
 
 @Component({
   selector: "app-top-banner",
@@ -6,10 +8,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./top-banner.component.scss"]
 })
 export class TopBannerComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit() {}
-  title: string = "We love working with Businesses ";
-  subtitle: string =
-    "We believe that our products can help organizations meet the challenges of rapid technological change. If you would like to include Packt in your catalogue and help us to help your customers, you can apply to become a trade reseller – you’ll receive priority information on our latest and hottest titles ";
+  private topBanners: Entry<any>;
+  constructor(private contentful : ContentfulService) {}
+
+  ngOnInit() {
+    this.contentful.getTopBanner()
+    .then(topBanners => this.topBanners = topBanners);
+  }
 }

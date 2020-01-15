@@ -1,9 +1,13 @@
 <div class="container">
-        <div class="content">
-          <div class="top-banner">
-            <mat-card-title class="title"> {{ title }}</mat-card-title>
-            <br />
-            <mat-card-subtitle class="subtitle">{{ subtitle }}</mat-card-subtitle>
-          </div>
-        </div>
-      </div>
+  <div class="content">
+    <div class="top-banner" *ngFor="let topBanner of topBanners">
+      <mat-card-title class="title">
+        {{ topBanner.fields.title }}</mat-card-title
+      >
+      <br />
+      <mat-card-subtitle class="subtitle">{{
+        topBanner.fields.subtitle
+      }}</mat-card-subtitle>
+    </div>
+  </div>
+</div>
