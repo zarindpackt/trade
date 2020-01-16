@@ -345,7 +345,8 @@
             </div>
           </div>
         </div>
-        <div class="shipping_address col-md-6">
+        <input type="checkbox" (click)=toggle()>
+        <div class="shipping_address col-md-6" *ngIf ="show">
           <label class="header_title">
             Shipping Address
           </label>

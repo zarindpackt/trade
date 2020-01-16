@@ -119,4 +119,10 @@ export class RegistrationComponent implements OnInit {
       );
     alert("SUCCESS!!" + JSON.stringify(this.registerForm.value));
   }
+
+  private show : boolean = true;
+
+  toggle(){
+    this.show = !this.show;
+  }
 }
