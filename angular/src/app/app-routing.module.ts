@@ -5,6 +5,7 @@ import { WelcomepageComponent } from "./welcomepage/welcomepage.component";
 import { LoginSignupFormComponent } from "./user/login-signup-form/login-signup-form.component";
 import { RegistrationComponent } from "./user/registration/registration.component";
 import { UserModule } from "./user/user.module";
+import { ForgotpassComponent } from './user/forgotpass/forgotpass.component';
 
 const routes: Routes = [
   { path: "", component: LoginSignupFormComponent, pathMatch: "full" },
@@ -14,6 +15,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { path: "register", component: RegistrationComponent },
+  { path: "forgotpass", component: ForgotpassComponent },
   { path: "**", redirectTo: "" }
 ];
 

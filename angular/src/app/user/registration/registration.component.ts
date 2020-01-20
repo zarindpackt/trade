@@ -72,14 +72,16 @@ export class RegistrationComponent implements OnInit {
           Validators.required,
           Validators.pattern("^[0-9]*$")
         ]),
+        same: new FormControl([false]),
+       
         ship_address_line_1: new FormControl(null, [Validators.required]),
-        ship_address_line_2: new FormControl(),
-        ship_town_city: new FormControl(null, [Validators.required]),
-        ship_country: new FormControl(null, [Validators.required]),
-        ship_postcode: new FormControl(null, [
+         ship_address_line_2: new FormControl(),
+         ship_town_city: new FormControl(null, [Validators.required]),
+         ship_country: new FormControl(null, [Validators.required]),
+       ship_postcode: new FormControl(null, [
           Validators.required,
           Validators.pattern("^[0-9]*$")
-        ]),
+         ]),
         ship_phoneNumber: new FormControl(null, [
           Validators.required,
           Validators.pattern("^[0-9]*$"),
@@ -90,7 +92,9 @@ export class RegistrationComponent implements OnInit {
       {
         validator: MustMatch("password", "confirmpassword")
       }
+      
     );
+    //this.setUserCategoryValidators();
   }
 
   get formControls() {
@@ -103,6 +107,11 @@ export class RegistrationComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
+
+    if (this.registerForm.valid) {
+      console.log(this.registerForm.value); // Process your form
+    }
+    
     this.userService
       .register(this.registerForm.value)
       .pipe(first())
@@ -120,9 +129,44 @@ export class RegistrationComponent implements OnInit {
     alert("SUCCESS!!" + JSON.stringify(this.registerForm.value));
   }
 
-  private show : boolean = true;
+  private show : boolean = false;
+  private blah : boolean =false;
+  isChecked : boolean;
 
-  toggle(){
-    this.show = !this.show;
+  toggle(event){
+     this.show = !this.show;
+    // this.blah = !this.blah;
+    
+    if(this.isChecked = event.target.checked){
+      console.log(event.target.checked)
   }
+    
+   
+  }
+
+  setUserCategoryValidators(){
+    const   address1 = this.registerForm.get('ship_address_line_1');
+    const   address2 = this.registerForm.get('ship_address_line_2');
+    const   city = this.registerForm.get('ship_town_city');
+    const   country = this.registerForm.get('ship_country');
+    const   code = this.registerForm.get('ship_postcode');
+    const   num = this.registerForm.get('ship_phoneNumber');
+    this.registerForm.get('same').valueChanges.subscribe(
+      same => 
+      {
+        if(this.isChecked === 'true'){
+        
+        }
+        address1.updateValueAndValidity();
+        address2.updateValueAndValidity();
+        city.updateValueAndValidity();
+        country.updateValueAndValidity();
+        code.updateValueAndValidity();
+        num.updateValueAndValidity();
+      }
+    )
+
+  }
+
+
 }

@@ -15,13 +15,15 @@ import { TopBannerComponent } from "./login-signup-form/top-banner/top-banner.co
 import { PlaceholdersComponent } from "./login-signup-form/placeholders/placeholders.component";
 import { LoginSignupFormComponent } from "./login-signup-form/login-signup-form.component";
 import { RegistrationComponent } from "./registration/registration.component";
+import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 
 @NgModule({
   declarations: [
     TopBannerComponent,
     PlaceholdersComponent,
     LoginSignupFormComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ForgotpassComponent
   ],
   imports: [
     CommonModule,
