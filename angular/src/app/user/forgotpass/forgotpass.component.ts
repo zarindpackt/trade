@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotpassComponent implements OnInit {
 
+  title : string = "Work in progress!!"
   constructor() { }
 
   ngOnInit() {

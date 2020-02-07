@@ -8,7 +8,7 @@ import {
 } from "@angular/forms";
 import { Router } from "@angular/router";
 import { UserService } from "src/app/services/user.service";
-import { first } from "rxjs/operators";
+import { first, ignoreElements } from "rxjs/operators";
 import { MustMatch } from "src/app/helpers/customvalidator";
 import { AlertService } from "src/app/services/alert.service";
 
@@ -21,6 +21,7 @@ export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   title = "Registration for Trade Account";
+  isShow = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,7 +39,7 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group(
       {
-        title: [null, Validators.required],
+        title:new FormControl([null, Validators.required]),
         firstName: new FormControl(null, [
           Validators.required,
           Validators.pattern("^[a-zA-Z ]*$")
@@ -72,8 +73,9 @@ export class RegistrationComponent implements OnInit {
           Validators.required,
           Validators.pattern("^[0-9]*$")
         ]),
-        same: new FormControl([false]),
-       
+        same: new FormControl(false),
+        
+        
         ship_address_line_1: new FormControl(null, [Validators.required]),
          ship_address_line_2: new FormControl(),
          ship_town_city: new FormControl(null, [Validators.required]),
@@ -92,11 +94,56 @@ export class RegistrationComponent implements OnInit {
       {
         validator: MustMatch("password", "confirmpassword")
       }
-      
     );
-    //this.setUserCategoryValidators();
+    console.log(this.registerForm.get('same').value);
+    this.same();
   }
 
+  same(){
+    this.isShow = !this.isShow;
+    const ship_address_line_1 = this.registerForm.get('ship_address_line_1');
+    const ship_town_city = this.registerForm.get('ship_town_city');
+    const ship_country = this.registerForm.get('ship_country');
+    const ship_postcode = this.registerForm.get('ship_postcode');
+    const ship_phoneNumber = this.registerForm.get('ship_phoneNumber');
+    this.registerForm.get('same').valueChanges.subscribe( same =>{
+      console.log(this.registerForm.get('same').value,'HERE123');
+      if (same === true){
+        console.log('im tired!!!');
+        ship_address_line_1.setValidators(null);
+        ship_town_city.setValidators(null);
+        ship_country.setValidators(null);
+        ship_postcode.setValidators(null);
+        ship_phoneNumber.setValidators(null);
+      }
+      else{
+        ship_address_line_1.setValidators([Validators.required]);
+        ship_town_city.setValidators([Validators.required]);
+        ship_country.setValidators([Validators.required]);
+        ship_postcode.setValidators([
+          Validators.required,
+          Validators.pattern("^[0-9]*$")
+         ]);
+        ship_phoneNumber.setValidators([
+          Validators.required,
+          Validators.pattern("^[0-9]*$"),
+          Validators.maxLength(10),
+          Validators.minLength(10)
+        ]);
+      }
+      ship_address_line_1.updateValueAndValidity();
+      ship_town_city.updateValueAndValidity();
+      ship_country.updateValueAndValidity();
+      ship_postcode.updateValueAndValidity();
+      ship_phoneNumber.updateValueAndValidity();
+
+    }) ;
+
+    
+  }
+
+
+ 
   get formControls() {
     return this.registerForm.controls;
   }
@@ -135,38 +182,5 @@ export class RegistrationComponent implements OnInit {
 
   toggle(event){
      this.show = !this.show;
-    // this.blah = !this.blah;
-    
-    if(this.isChecked = event.target.checked){
-      console.log(event.target.checked)
   }
-    
-   
-  }
-
-  setUserCategoryValidators(){
-    const   address1 = this.registerForm.get('ship_address_line_1');
-    const   address2 = this.registerForm.get('ship_address_line_2');
-    const   city = this.registerForm.get('ship_town_city');
-    const   country = this.registerForm.get('ship_country');
-    const   code = this.registerForm.get('ship_postcode');
-    const   num = this.registerForm.get('ship_phoneNumber');
-    this.registerForm.get('same').valueChanges.subscribe(
-      same => 
-      {
-        if(this.isChecked === 'true'){
-        
-        }
-        address1.updateValueAndValidity();
-        address2.updateValueAndValidity();
-        city.updateValueAndValidity();
-        country.updateValueAndValidity();
-        code.updateValueAndValidity();
-        num.updateValueAndValidity();
-      }
-    )
-
-  }
-
-
 }

@@ -344,10 +344,11 @@
               </div>
             </div>
           </div>
+          <div class="checkbox">
+              <input type="checkbox" formControlName="same" (change)="same()">  Shipping address is same as registered address</div>
         </div>
-        <!-- <input type="checkbox" (click)=toggle() formControlName="same"> -->
-        <input type="checkbox"  formControlName="same" (change)=toggle($event) > same
-        <div class="shipping_address col-md-6" *ngIf ="show">
+        
+        <div class="shipping_address col-md-6"   [hidden] = "!isShow">
           <label class="header_title">
             Shipping Address
           </label>

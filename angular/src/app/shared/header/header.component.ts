@@ -18,5 +18,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(["/loginpage"]);
   }
 
+  home(){
+    this.router.navigate(["/loginpage"]);
+  }
+
   ngOnInit() {}
 }
